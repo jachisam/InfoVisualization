@@ -1,1 +1,64 @@
 /* CSS */
+
+body{
+    background-color: ghostwhite;
+}
+h3{
+    color: darkgreen;
+}
+.bar_chart{
+    width: 500px;
+    height: 225px;
+}
+rect{
+    fill:lightgray;
+    stroke-width: 1.5;
+    stroke: darkslategray;
+}
+rect:hover {
+    fill: darkgreen;
+}
+text{
+    font-family: serif;
+    font-size: 10px;
+    font-weight: bold;
+    fill: darkred;
+}
+hr{
+    border: 0;
+    height: 0;
+    color: lightgray;
+    border-top: 1px;
+    border-bottom: 1px solid;
+}
+
+.line_chart{
+    width: 1000px;
+    height: 400px;
+}
+#axis{
+    stroke: darkslategray;
+    stroke-width: 2;
+}
+path{
+    stroke: darkgreen;
+    stroke-width: 3;
+    fill: none;
+}
+line{
+    stroke: darkgreen;
+    stroke-width: 2;
+}
+.area_chart{
+    fill: lightgreen;
+}
+.scatterplot{
+    width: 1000px;
+    height: 500px;
+}
+circle{
+    fill: darkgreen;
+}
+circle:hover {
+    fill: lightgreen;
+}
