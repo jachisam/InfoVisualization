@@ -1,0 +1,66 @@
+/* CSS */
+
+body{
+  background-color: ghostwhite;
+}
+
+h2{
+  color: darkred;
+}
+
+svg rect{
+    fill:lightgray;
+    stroke-width: 1.5;
+    stroke: darkslategray;
+}
+
+#area_chart #area_chart2{
+  fill: darkgreen;
+  fill-opacity: 0.5;
+}
+.bar_mouseover {
+    fill: green;
+}
+
+/* provided CSS */
+.barChart {
+    fill: steelblue;
+    stroke: darkgray;
+    stroke-width: 1px;
+}
+
+.barChart rect:hover {
+    fill: seagreen;
+}
+
+.lines {
+    stroke: steelblue;
+    fill: none
+}
+
+.areas {
+    stroke: none;
+    fill: steelblue
+}
+
+circle {
+    fill: darkgreen;
+}
+
+.frame {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+/* Styles that clean up the layout;
+ * you can ignore these */
+div {
+    display: inline-block;
+    border: 1px solid lightgray;
+    margin: 1em;
+}
+
+div, span {
+    padding: 1em;
+}

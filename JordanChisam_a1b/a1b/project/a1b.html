@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1B</title>
+    <link rel="stylesheet" href="../css/a1b.css">
+</head>
+<body>
+<body>
+
+<h3>CSE 457 Assignment 1B</h3>
+<span>Jordie Chisam</span>
+<span>jachisam@wustl.edu</span>
+<span>441729</span>
+
+<br/>
+<hr/>
+<br/>
+
+<span>
+    <button onclick="staircase()">Staircase</button>
+</span>
+
+<span>
+    <label>Dataset:</label>
+    <select id="dataset" onchange="changeData()">
+        <option value="anscombe_I">Anscombe's Quartet I</option>
+        <option selected value="anscombe_II">Anscombe's Quartet II</option>
+        <option value="anscombe_III">Anscombe's Quartet III</option>
+        <option value="anscombe_IV">Anscombe's Quartet IV</option>
+    </select>
+</span>
+
+<span>
+    <input type="checkbox" id="random" onchange="randomSubset()"> Random Subset
+</span>
+
+<br/>
+
+<div>
+    <h2>Bar Charts</h2>
+    <svg width="200" height="200" id="bar_chart"></svg>
+    <svg width="200" height="200" id="bar_chart2"></svg>
+</div>
+
+<div>
+    <h2>Line Charts</h2>
+    <svg width="200" height="200" id="line_chart"></svg>
+    <svg width="200" height="200" id="line_chart2"></svg>
+</div>
+
+<div>
+    <h2>Area Charts</h2>
+    <svg width="200" height="200" id="area_chart"></svg>
+    <svg width="200" height="200" id="area_chart2"></svg>
+</div>
+
+<div>
+    <h2>Scatterplot</h2>
+    <svg width="400" height="200" id="scatter_plot"></svg>
+</div>
+<script src="../js/d3.min.js"></script>
+<script src="../js/script.js"></script>
+
+</body>
+</html>
