@@ -9,15 +9,30 @@ h2{
 }
 
 svg rect{
-    fill:lightgray;
+    fill: lightgray;
     stroke-width: 1.5;
     stroke: darkslategray;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    background: darkred;
+    color: white;
+    font: 14px sans-serif;
+    width: 75px;
+    height: 25px;
+    padding: 2px;
+    opacity: 10%;
+    border: 0px;
+    border-radius: 5px;
 }
 
 #area_chart #area_chart2{
   fill: darkgreen;
   fill-opacity: 0.5;
 }
+
 .bar_mouseover {
     fill: green;
 }

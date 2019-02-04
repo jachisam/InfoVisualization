@@ -70,9 +70,6 @@ function update(error, data) {
             return d.b;
         })])
         .range([150, 0]);
-    // var iiScale = d3.scaleLinear()
-    //     .domain([0, data.length])
-    //     .range([110, 0]);
 
     // ****** TODO: PART III (you will also edit in PART V) ******
 
@@ -178,7 +175,7 @@ function update(error, data) {
         .data(data)
         .enter()
         .append("path")
-        .attr("d", aLineGenerator(data))
+        .attr("d", aLineGenerator(data) + ", v 200, h -100")
         .attr("stroke", "darkgreen")
         .attr("stroke-width", 2)
         .attr("fill", "darkgreen")
@@ -202,7 +199,7 @@ function update(error, data) {
       .data(data)
       .enter()
       .append("path")
-      .attr("d", bLineGenerator(data))
+      .attr("d", bLineGenerator(data) + ", v 200, h -100")
       .attr("stroke", "darkgreen")
       .attr("stroke-width", 2)
       .attr("fill", "darkgreen")
@@ -238,7 +235,7 @@ function update(error, data) {
           this.classList.remove("bar_mouseover");
         });
     }
-
+    // i also used JS to add hover to the circles
     var circles = document.getElementsByClassName('circles');
     for (var i = 0; i < circles.length; i++) {
         circles[i].addEventListener('mouseover', function(){
@@ -249,9 +246,25 @@ function update(error, data) {
         });
     }
 
+    // listen for clicks on scatterplot and add tooltip extra credit
+    var tp = d3.select("#scatter").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
     d3.selectAll("circle")
     .on("click", function(d,i) {
       console.log("("+ d.a + ", " + d.b + ")");
+    })
+    .on("mouseover", function(d) {
+      var html  = "("+ d.a + ", " + d.b + ")";
+      tp.html(html)
+        .transition()
+        .style("left", "57%")
+        .style("top", "525px")
+        .style("opacity", .9);
+    })
+    .on("mouseout", function(d) {
+      tp.transition()
+        .style("opacity", 0);
     });
 
 }
