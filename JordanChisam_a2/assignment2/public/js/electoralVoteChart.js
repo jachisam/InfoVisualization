@@ -126,7 +126,7 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
         return (b.D_Percentage - b.R_Percentage) - (a.D_Percentage - a.R_Percentage);
       });
       // drStatesConcatened = drStatesConcatened.concat(iStates);
-      console.log(drStatesConcatened);
+      // console.log(drStatesConcatened);
 
 
       // Independent states
@@ -143,11 +143,66 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
       //Total should be 537
       var totalEV = dTotalEV + rTotalEV + iTotalEV;
 
-
-
+      removeElectoralVoteChart();
+      drawEVText(iStates, dTotalEV, rTotalEV, iTotalEV);
       drawElectoralVoteChart(data, totalEV);
+      bar50();
+      infoEV();
   }
 
+  function removeElectoralVoteChart(){
+    self.svg.selectAll("rect").remove();
+    self.svg.selectAll("text").remove();
+  }
+
+  //Display total count of electoral votes won by the Democrat and Republican party
+  //on top of the corresponding groups of bars.
+  //HINT: Use the .electoralVoteText class to style your text elements;  Use this in combination with
+  // chooseClass to get a color based on the party wherever necessary
+  function drawEVText(iStates, dTotalEV, rTotalEV, iTotalEV){
+    if(iStates.length != 0){
+      self.svg.append("text")
+        .attr("x", margin.left + 1)
+        .attr("y", 25)
+        .attr("class", function(d){
+          return self.chooseClass("I") + " electoralVoteText";
+        })
+        .text(iTotalEV);
+      self.svg.append("text")
+        .attr("x", margin.left + 70)
+        .attr("y", 25)
+        .attr("class", function(d){
+          return self.chooseClass("D") + " electoralVoteText";
+        })
+        .text(dTotalEV);
+      self.svg.append("text")
+        .attr("x", self.svgWidth - 1)
+        .attr("y", 25)
+        .attr("class", function(d){
+          return self.chooseClass("R") + " electoralVoteText";
+        })
+        .text(rTotalEV);
+    }else{
+    self.svg.append("text")
+      .attr("x", margin.left + 1)
+      .attr("y", 25)
+      .attr("class", function(d){
+        return self.chooseClass("D") + " electoralVoteText";
+      })
+      .text(dTotalEV);
+    self.svg.append("text")
+      .attr("x", self.svgWidth - 1)
+      .attr("y", 25)
+      .attr("class", function(d){
+        return self.chooseClass("R") + " electoralVoteText";
+      })
+      .text(rTotalEV);
+    }
+  }
+
+  //Create the stacked bar chart.
+  //Use the global color scale to color code the rectangles.
+  //HINT: Use .electoralVotes class to style your bars.
   function drawElectoralVoteChart(data, totalEV){
     var evScale = d3.scaleLinear()
       .domain([3, 55]) //min and max of electoral votes
@@ -226,21 +281,30 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
     }
   }
 
-    //Create the stacked bar chart.
-    //Use the global color scale to color code the rectangles.
-    //HINT: Use .electoralVotes class to style your bars.
-
-    //Display total count of electoral votes won by the Democrat and Republican party
-    //on top of the corresponding groups of bars.
-    //HINT: Use the .electoralVoteText class to style your text elements;  Use this in combination with
-    // chooseClass to get a color based on the party wherever necessary
-
     //Display a bar with minimal width in the center of the bar chart to indicate the 50% mark
     //HINT: Use .middlePoint class to style this bar.
+
+    function bar50(){
+      self.svg.append("rect")
+        .attr("x", (self.svgWidth * 0.5) + 35)
+        .attr("y", 30)
+        .attr("width", 5)
+        .attr("height", 46)
+        .attr("class", "middlePoint");
+    }
 
     //Just above this, display the text mentioning the total number of electoral votes required
     // to win the elections throughout the country
     //HINT: Use .electoralVotesNote class to style this text element
+
+    function infoEV(){
+      self.svg.append("text")
+        .attr("x", (self.svgWidth * 0.5) + 35)
+        .attr("y", 27)
+        .attr("class", "electoralVotesNote")
+        .text("Electoral Vote (270 Needed to Win)");
+    }
+
 
     //HINT: Use the chooseClass method to style your elements based on party wherever necessary.
 

@@ -153,7 +153,8 @@ YearChart.prototype.update = function(){
 
           var yearSelectedData = "election-results-"+d.YEAR+".csv";
           self.electoralVoteChart.update(yearSelectedData, self.colorScale);
-
+          self.votePercentageChart.update(yearSelectedData);
+          // self.tileChart.update(yearSelectedData, self.colorScale);
 				});
 
 
