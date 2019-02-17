@@ -18,7 +18,7 @@ VotePercentageChart.prototype.init = function(){
     //Gets access to the div element created for this chart from HTML
     self.svgBounds = divvotesPercentage.node().getBoundingClientRect();
     self.svgWidth = self.svgBounds.width - self.margin.left - self.margin.right;
-    self.svgHeight = 200;
+    self.svgHeight = 150;
 
     //creates svg element within the div
     self.svg = divvotesPercentage.append("svg")
@@ -139,7 +139,7 @@ VotePercentageChart.prototype.update = function(electionResult){
         })
         .html(function(d) {
              // populate data in the following format
-             if (iVotes != 0){
+             if(iVotes != 0){
                tooltip_data = {
                  "result":[
                    {"nominee": dNom,"votecount": dVotes,"percentage": dP,"party":"D"} ,
@@ -158,8 +158,7 @@ VotePercentageChart.prototype.update = function(electionResult){
              }
              // pass this as an argument to the tooltip_render function then,
              // return the HTML content returned from that method.
-             let tooltipHTML = VotePercentageChart.prototype.tooltip_render(tooltip_data);
-             return tooltipHTML;
+             return VotePercentageChart.prototype.tooltip_render(tooltip_data);
       });
 
 
@@ -187,7 +186,7 @@ VotePercentageChart.prototype.update = function(electionResult){
           .attr("width", evScale(iP))
           .attr("height", 35)
           .attr("class", function(d){
-            return self.chooseClass("I") + " votesPercentage";
+            return self.chooseClass("I") + " votesPercentage" ;
           })
           .on('mouseover', tip.show)
           .on('mouseout', tip.hide);
@@ -278,7 +277,7 @@ VotePercentageChart.prototype.update = function(electionResult){
       self.svg.append("rect")
         .attr("x", (self.svgWidth * 0.5) + 35)
         .attr("y", 30)
-        .attr("width", 5)
+        .attr("width", 3)
         .attr("height", 46)
         .attr("class", "middlePoint");
       infoEV();

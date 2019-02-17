@@ -36,9 +36,11 @@ h1 {
 .electoralVoteText{
   font-size: 25px;
 }
+
  .votesPercentageText{
    font-size: 15px;
  }
+
 .end{
     text-anchor:end;
 }
@@ -125,6 +127,7 @@ h2{
 }
 .d3-tip {
     /*line-height: 5;*/
+    position: relative;
     font-size:10px;
     width: 250px;
     padding-left: 5px;
@@ -147,8 +150,8 @@ h2{
 .d3-tip:after {
     /*box-sizing: border-box;*/
     display: inline;
-    font-size: 15px;
-    width: 80%;
+    font-size: 10px;
+    width: 100%;
     /*line-height: 1;*/
     color: rgba(0, 0, 0, 0.8);
     position: relative;
@@ -169,7 +172,7 @@ h2{
     content: "\26A0";
     /*margin: -4px 0 0 0;*/
     top: -800px;
-    left: 30px;
+    left: -8px;
 }
 
 /* Southward tooltips */
@@ -188,8 +191,15 @@ h2{
     top: 50%;
     left: 100%;
 }
-
 h3{
     text-anchor:middle;
     font-size: 32px;
+}
+h4{
+  color: gray;
+  font-style: italic;
+  padding-left: 60px;
+}
+text.label{
+  font-size: 10px;
 }

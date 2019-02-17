@@ -73,6 +73,11 @@ YearChart.prototype.update = function(){
     self.colorScale = d3.scaleQuantile()
         .domain(domain).range(range);
 
+    var yearSelectedData = "election-results-2016.csv";
+    self.electoralVoteChart.update(yearSelectedData, self.colorScale);
+    self.votePercentageChart.update(yearSelectedData);
+    self.tileChart.update(yearSelectedData, self.colorScale);
+
     // ******* TODO: PART I *******
 
     // var svg = d3.select("#year-chart")
@@ -154,7 +159,7 @@ YearChart.prototype.update = function(){
           var yearSelectedData = "election-results-"+d.YEAR+".csv";
           self.electoralVoteChart.update(yearSelectedData, self.colorScale);
           self.votePercentageChart.update(yearSelectedData);
-          // self.tileChart.update(yearSelectedData, self.colorScale);
+          self.tileChart.update(yearSelectedData, self.colorScale);
 				});
 
 

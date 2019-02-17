@@ -21,7 +21,7 @@ ElectoralVoteChart.prototype.init = function(){
     var divelectoralVotes = d3.select("#electoral-vote").classed("content", true);
     self.svgBounds = divelectoralVotes.node().getBoundingClientRect();
     self.svgWidth = self.svgBounds.width - self.margin.left - self.margin.right;
-    self.svgHeight = 150;
+    self.svgHeight = 100;
 
     //creates svg element within the div
     self.svg = divelectoralVotes.append("svg")
@@ -288,7 +288,7 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
       self.svg.append("rect")
         .attr("x", (self.svgWidth * 0.5) + 35)
         .attr("y", 30)
-        .attr("width", 5)
+        .attr("width", 3)
         .attr("height", 46)
         .attr("class", "middlePoint");
     }
