@@ -21,7 +21,7 @@ ElectoralVoteChart.prototype.init = function(){
     var divelectoralVotes = d3.select("#electoral-vote").classed("content", true);
     self.svgBounds = divelectoralVotes.node().getBoundingClientRect();
     self.svgWidth = self.svgBounds.width - self.margin.left - self.margin.right;
-    self.svgHeight = 100;
+    self.svgHeight = 150;
 
     //creates svg element within the div
     self.svg = divelectoralVotes.append("svg")
@@ -29,6 +29,7 @@ ElectoralVoteChart.prototype.init = function(){
         .attr("height",self.svgHeight)
     self.g = self.svg.append("g").attr("id", "idI");
     self.gg = self.svg.append("g").attr("id","idDR");
+    self.ggg = self.svg.append("g").attr("class", "brush");
 
 };
 
@@ -313,5 +314,12 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
     //Implement a call back method to handle the brush end event.
     //Call the update method of brushSelection and pass the data corresponding to brush selection.
     //HINT: Use the .brush class to style the brush.
+
+    // self.ggg.call(d3.brushX()
+    //   .extent([[0, 0], [self.svgWidth, self.svgHeight]])
+    //   .on('end', brushended)
+    // );
+
+
 
 };

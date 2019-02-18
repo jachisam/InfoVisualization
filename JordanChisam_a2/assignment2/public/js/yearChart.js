@@ -174,4 +174,8 @@ YearChart.prototype.update = function(){
     //Implement a call back method to handle the brush end event.
     //Call the update method of brushSelection and pass the data corresponding to brush selection.
     //HINT: Use the .brush class to style the brush.
+    
+
+
+
 };

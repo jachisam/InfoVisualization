@@ -17,7 +17,7 @@ I used external resources:
   - https://stackoverflow.com/questions/17410082/appending-multiple-svg-text-with-d3
 
 ### Brush Selection
-
+  - Did not complete the extra credit
 
 
 

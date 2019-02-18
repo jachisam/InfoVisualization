@@ -92,7 +92,7 @@ TileChart.prototype.update = function(electionResult, colorScale){
       numeric(data);
       drawTileChart(data);
       genTip(data);
-      console.log(data);
+      // console.log(data);
     });
     // var THEDATA;
     // setTimeout(function(){
@@ -132,7 +132,27 @@ TileChart.prototype.update = function(electionResult, colorScale){
                     {"nominee": data[20].I_Nominee,"votecount": driVotes(d, data, "I"),"percentage": driPercentage(d, data, "I"),"party":"I"}
                   ]
                 }
-              }else{
+              }else if((((d[0] === "AK") || (d[0] === "HI")) && (data[20].Year < 1960))){
+                tooltip_data = {
+                   "state": "N/A", //State,
+                   "winner": winner(d, data), //d.State_Winner
+                   "electoralVotes" : "N/A",
+                   "result":[
+                     {"nominee": "N/A","votecount": "N/A","percentage": "0","party":"D"} ,
+                   ]
+                 }
+              }
+              else if(((d[0] === "DC")) && (data[20].Year < 1964)){
+                tooltip_data = {
+                   "state": "N/A", //State,
+                   "winner": winner(d, data), //d.State_Winner
+                   "electoralVotes" : "N/A",
+                   "result":[
+                     {"nominee": "N/A","votecount": "N/A","percentage": "0","party":"D"} ,
+                   ]
+                 }
+              }
+              else{
                 tooltip_data = {
                    "state": fullStateName(d, data), //State,
                    "winner": winner(d, data), //d.State_Winner
@@ -225,7 +245,7 @@ TileChart.prototype.update = function(electionResult, colorScale){
       ["TX", [7, 4]],
       ["FL", [7, 9]]
     ]
-    console.log(states);
+    // console.log(states);
     function drawTileChart(data){
       var maxtrix = self.svg.selectAll("rect")
         .data(states)
@@ -234,7 +254,7 @@ TileChart.prototype.update = function(electionResult, colorScale){
         .attr("width", 75)
         .attr("height", 70)
         .attr("fill", function(d){
-          console.log(d[0])
+          // console.log(d[0])
           if(anIndependantWon(d, data)){
             return "#45AD6A";
           }else if(data[0].Year < 1960 && (d[0] === "AK" || d[0] === "HI")){
