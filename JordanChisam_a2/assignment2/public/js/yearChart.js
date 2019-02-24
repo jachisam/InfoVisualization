@@ -174,7 +174,13 @@ YearChart.prototype.update = function(){
     //Implement a call back method to handle the brush end event.
     //Call the update method of brushSelection and pass the data corresponding to brush selection.
     //HINT: Use the .brush class to style the brush.
-    
+    // self.svg.call(d3.brushX()
+    //   .extent([[0, 0], [self.svgWidth, self.svgHeight]]));
+    //   .on('end', brushended)
+    // );
+    // function brushended(){
+    //   //do something
+    // }
 
 
 

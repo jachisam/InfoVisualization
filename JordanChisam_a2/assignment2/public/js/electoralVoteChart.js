@@ -29,7 +29,7 @@ ElectoralVoteChart.prototype.init = function(){
         .attr("height",self.svgHeight)
     self.g = self.svg.append("g").attr("id", "idI");
     self.gg = self.svg.append("g").attr("id","idDR");
-    self.ggg = self.svg.append("g").attr("class", "brush");
+    // self.gbrush = self.svg.append("g").attr("class", "brush");
 
 };
 
@@ -315,11 +315,20 @@ ElectoralVoteChart.prototype.update = function(electionResult, colorScale){
     //Call the update method of brushSelection and pass the data corresponding to brush selection.
     //HINT: Use the .brush class to style the brush.
 
-    // self.ggg.call(d3.brushX()
+    // self.gbrush.call(d3.brushX()
     //   .extent([[0, 0], [self.svgWidth, self.svgHeight]])
     //   .on('end', brushended)
     // );
 
+    // self.svg.call(d3.brush()
+    //   .extent([[0, 0], [self.svgWidth, self.svgHeight]]));
 
+    // self.svg.call(d3.brush().on("brush", brushed));
+    self.svg.append("g")
+      .attr("class", "brush")
+      .call(d3.brush().on("brush", brushed));
+    function brushed(){
+      //do something
+    }
 
 };
