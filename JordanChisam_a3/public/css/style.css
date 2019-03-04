@@ -1,0 +1,66 @@
+
+
+body {
+    font-family: Lato;
+    background-color: lightblue;
+}
+
+h1 {
+    font-family: "Arvo";
+    font-size:35px;
+    /* color: #464646; */
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+h2 {
+    -webkit-margin-before: 5px;
+    -webkit-margin-after:  5px;
+}
+
+h3 {
+    text-anchor:middle;
+    font-size: 32px;
+}
+h4 {
+  color: gray;
+  font-style: italic;
+  padding-left: 60px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+
+.info {
+  color: grey;
+}
+
+#text-area {
+  font-size: 12.5px;
+}
+
+.footer {
+  position: relative;
+  text-align: center;
+  bottom: -730px;
+  font-family: "Cantarell";
+  font-size: 14px;
+}
+hr {
+  height: 1px;
+  background-color: black;
+  border: none;
+}
+
+#table hr {
+  height: 1px;
+  background-color: black;
+  border: none;
+}

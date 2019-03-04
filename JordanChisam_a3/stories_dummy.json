@@ -1,0 +1,7 @@
+{
+"stories":[
+  {"firstName":"John P", "pos":30, "neg":10, "ss":0.4, "wc_total": 500},
+  {"firstName":"Anna N", "pos":20, "neg":30,"ss":-0.2, "wc_total": 350},
+  {"firstName":"Peter N", "pos":10, "neg":20, "ss":-0.4, "wc_total": 200}
+]
+}
