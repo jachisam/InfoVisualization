@@ -4,7 +4,7 @@ d3.json("stories_dummy.json", function(data) {
     // console.log(data);
     scatterDict = transformData(data);
     appendStories(data.stories);
-    scatterplot(data.stories);
+    // scatterplot(data.stories);
 });
 
 function transformData(data){
@@ -23,10 +23,13 @@ function appendStories(data){
     .data(data)
     .enter();
   var tr = p.append("tr");
+  var sb;
   tr.append("td")
-    .text(function(d){
-      return 1;
+    .text(function(d, index){
+      sb = d.neg;
+      return 1+ index;
     });
+  // var sb = scatter_bool._groups[0][1].innerHTML;
   tr.append("td")
     .text(function(d){
       return d.firstName;
@@ -35,23 +38,35 @@ function appendStories(data){
     .text(function(d){
       return d.ss;
     });
-  tr.append("td")
+  var svgWidth = 250;
+  var bar_container = tr.append("td")
     .append("svg")
-    .attr("width", 250)
+    .attr("width", svgWidth)
     .attr("height", 25);
+
+  console.log(sb);
+  var rect1Width = svgWidth * sb / 100;
+  var rect = bar_container.append("rect")
+     .attr("width", function(d){
+       return svgWidth * d.neg / 100;
+     })
+     .attr("height", 100)
+     .style("fill", "blueviolet");
+
+  var rect1 = bar_container.append("rect")
+     .attr("x", function(d){
+       return svgWidth * d.neg / 100;
+     })
+     .attr("width", function(d){
+       return svgWidth - (svgWidth * d.neg / 100);
+     })
+     .attr("height", 100)
+     .style("fill", "yellow");
+
 }
 
 function scatterplot(data){
   console.log(data);
-
-  var p = d3.select("#scatter_th").selectAll("tr")
-    .data(data)
-    .enter();
-    var tr = p.append("tr");
-    tr.append("td")
-      .text(function(d){
-        return 1;
-    });
 
   // var svgContainer = d3.select("body").append("svg")
   //   .attr("width", 700)
