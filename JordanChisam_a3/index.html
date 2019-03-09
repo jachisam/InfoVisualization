@@ -15,26 +15,51 @@
 <body>
 
 <h1 class="info">Once Upon A Time</h1>
-<hr class="footer">
-<p class="footer">Name: Jordie Chisam | E-Mail: jachisam@wustl.edu | UID: 441729</p>
+<!-- <hr class="footer"> -->
+<p class="header">Name: Jordie Chisam | E-Mail: jachisam@wustl.edu | UID: 441729</p>
 
 
 <h2> Sentiment Analysis for English Fairy Tales from the 19th Century </h2>
+<br>
 
-  <table style="width:100%" id="text-area">
-    <tr>
-      <th>#</th>
-      <th>English Fairy Tale</th>
-      <th>Sentiment Score</th>
-      <th>Negative vs. Positive Sentiment</th>
-      <th id="scatter_th">Sentiment Analysis Scatter Plot</th>
-    </tr>
-  </table>
+
+<span class="left-side">
+    <label>Filter By:</label>
+    <select id="filter" onchange="update()">
+        <option value="random">Random</option>
+        <option value="aoa">Alphabetical Order (Ascending)</option>
+        <option selected value="aod">Alphabetical Order (Descending)</option>
+        <option value="ssa">Sentiment Score (Ascending)</option>
+        <option value="ssd">Sentiment Score (Descending)</option>
+    </select>
+</span>
+
+<br><br><br><br>
+<div id="theviz">
+  <div class="column left" id="story_table">
+    <table id="text-area">
+      <tr>
+        <th class="smaller">Rank</th>
+        <th class="medium">English Fairy Tale</th>
+        <th>Sentiment Score &nbsp [-100,+100]</th>
+        <th class="medium">Negative vs. Positive Sentiment Scale [0, 100]</th>
+      </tr>
+    </table>
+  </div>
+  <div class="column right" id="scatter_th">
+    <table>
+      <tr>
+        <th>Sentiment Analysis Scatter Plot</th>
+      </tr>
+    </table>
+    <!-- <th id="scatter_th">Sentiment Analysis Scatter Plot</th> -->
+  </div>
+</div>
+
+
+
 
 <div id="text-area"></div>
-
-<!-- Parent container for the scatterplot -->
-<div id="scatter"></div>
 
 <!-- Scatterplot implementation -->
 <!-- <script src="public/js/main.js"></script> -->

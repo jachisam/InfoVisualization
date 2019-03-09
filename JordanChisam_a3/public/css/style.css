@@ -2,7 +2,7 @@
 
 body {
     font-family: Lato;
-    background-color: lightblue;
+    background-color: #f2f2f2;
 }
 
 h1 {
@@ -16,8 +16,10 @@ h1 {
 }
 
 h2 {
-    -webkit-margin-before: 5px;
+    -webkit-margin-before: -20px;
     -webkit-margin-after:  5px;
+    text-align: center;
+    font-size:20px;
 }
 
 h3 {
@@ -31,12 +33,40 @@ h4 {
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px dotted lightgray;
   border-collapse: collapse;
-}
-th, td {
-  padding: 5px 5px 5px 5px;
+  width: 90%;
+  padding: 15px 15px 20px 15px;
   text-align: center;
+  font-family: "Arvo";
+  font-size:15px;
+}
+.smaller{
+  width: 15px;
+  text-align: center;
+}
+.small{
+  width: 25px;
+  text-align: center;
+}
+.medium{
+  width: 80px;
+  text-align: center;
+}
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 66%;
+}
+.right {
+ width: 34%
+}
+
+.left-side{
+  text-align: left;
 }
 
 .info {
@@ -47,12 +77,13 @@ th, td {
   font-size: 12.5px;
 }
 
-.footer {
+.header {
   position: relative;
-  text-align: center;
-  bottom: -730px;
-  font-family: "Cantarell";
-  font-size: 14px;
+  text-align: right;
+  /* bottom: -730px; */
+  top: -50px;
+  font-family: "Arvo";
+  font-size: 12px;
 }
 hr {
   height: 1px;
@@ -64,4 +95,11 @@ hr {
   height: 1px;
   background-color: black;
   border: none;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
 }
